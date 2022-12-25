@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Rajesh_Kawali
  *
  */
+//@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
 @SpringBootApplication
 public class SpringbootInterviewApplication {
 

@@ -1,10 +1,16 @@
 package com.rajeshkawali.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.rajeshkawali.lookup.PrototypeClass;
+import com.rajeshkawali.qualifier.University;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,8 +27,15 @@ public class GenericController {
 	
 	public static final String CLASS_NAME = GenericController.class.getName();
 
-	@Value("${app.name}")
-	private String applicationName;
+	@Value("${app.name: This is default value from Value annotation}")
+	private String applicationName; 
+	
+	@Autowired
+	private PrototypeClass prototypeClass; // This will return same object/bean every time we call it.
+	
+	@Qualifier("reva")
+	@Autowired
+	private University university;
 	
 	@GetMapping("/getApplicationName")
 	public String getApplicationName() {
@@ -32,4 +45,25 @@ public class GenericController {
 		return applicationName;
 	}
 	
+	@GetMapping("/getPrototype")
+	public String getPrototypeObject() {
+		String _function = ".getPrototypeObject";
+		log.info(CLASS_NAME + _function + "::ENTER");
+		log.info(CLASS_NAME + _function + "::prototypeClass: {}", prototypeClass); // Same bean every time
+		log.info(CLASS_NAME + _function + "::getPrototypeBean: {}", getPrototypeBean());// Different bean every time
+		return "Check console for prototype beans";
+	}
+	
+	@GetMapping("/getUniversity")
+	public String getUniversity() {
+		String _function = ".getUniversity";
+		log.info(CLASS_NAME + _function + "::ENTER");
+		log.info(CLASS_NAME + _function + "::university: {}", university.display());
+		return university.display();
+	}
+	
+	@Lookup
+	public PrototypeClass getPrototypeBean() {
+		return null;
+	}
 }
