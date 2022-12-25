@@ -4,7 +4,7 @@ Springboot examples for interviews
 # To get text from file 
 using @PropertySource and @Value we can retrive data from file (test.txt)
 
-#How to get default valuse if requested property is not present in application.properties file
+# How to get default valuse if requested property is not present in application.properties file
 If "app.name" property is not present in the file then it will not through any exception 
 insteaded it will return default value given in @Value annotation
 using @Value("${app.name: This is default value from Value annotation}")
@@ -12,7 +12,8 @@ using @Value("${app.name: This is default value from Value annotation}")
 # Inject prototype bean into singleton class
 using @Lookup and @Scope("prototype") we can inject prototype bean into singleton class.
 
-# How to exclude embeded tomcat 
+# How to exclude embeded tomcat
+
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-web</artifactId>
