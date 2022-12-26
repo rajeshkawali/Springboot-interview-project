@@ -77,6 +77,9 @@ We can also access configuration from class using  @Profile({"prod"})
 **Set the property value to true means that all the beans in the application will use lazy initialization.**
 > spring.main.lazy-initialization=true
 
+To enable lazy initialization for specific class
+> @Lazy
+
 ### Spring boot actuator
 Spring Boot's 'Actuator' dependency is used to monitor and manage the Spring web application
 
