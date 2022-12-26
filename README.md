@@ -24,7 +24,9 @@ insteaded it will return default value given in @Value annotation using
 ### Inject prototype bean into singleton class
 using @Lookup and @Scope("prototype") we can inject prototype bean into singleton class.
 
-### How to exclude embeded tomcat
+### How to exclude embeded tomcat and jetty
+The default embedded server is tomcat. Other options available are jetty and underTow
+To remove the tomcat starter from your project, exclude tomcat from web dependency. Just add spring-boot-starter-jetty dependency
 ```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
@@ -35,6 +37,10 @@ using @Lookup and @Scope("prototype") we can inject prototype bean into singleto
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 		</exclusion>
 	</exclusions>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jetty</artifactId>
 </dependency>
 ```
 
