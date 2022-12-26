@@ -6,13 +6,13 @@ using @PropertySource and @Value we can retrive data from file (test.txt)
 
 ### To read propery values from application.properties file
 
-** To get list of values **
+To get list of values
 > @Value("#{'${my.user.list}'.split(',')}")
 
-** To get key value pair **
+To get key value pair
 > @Value("#{${getMap}}")
 
-** To assign properties values to class **
+To assign properties values to class
 > @ConfigurationProperties(prefix = "user.address")
 
 ### How to get default valuse if requested property is not present in application.properties file
@@ -24,7 +24,7 @@ insteaded it will return default value given in @Value annotation using
 ### Inject prototype bean into singleton class
 using @Lookup and @Scope("prototype") we can inject prototype bean into singleton class.
 
-m### How to exclude embeded tomcat
+### How to exclude embeded tomcat
 ```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
