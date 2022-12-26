@@ -48,7 +48,7 @@ public class GenericController {
 	@Autowired
 	private EagerLoading eagerLoading;
 
-	@Lazy
+	@Lazy // Without using @Lazy annotation at both places, autowiring will not work.
 	@Autowired
 	private LazyLoading lazyLoading;
 
