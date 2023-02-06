@@ -58,6 +58,11 @@ Using below annotation we can exclude any auto configured file from spring boot 
 
 > @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 
+
+## What will happen when we keep both application.properties and application.yml files
+In Spring Boot, if both application.properties and application.yml files are present, the properties defined in application.yml will take precedence. The properties in application.properties file will be ignored.
+
+
 ## Spring boot profiles
 To set specific profile in application.properties use below property
 
