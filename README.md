@@ -126,4 +126,12 @@ while when you use the new operator, you are creating a new instance of the bean
 If you create a new instance of a bean using the new operator, Spring Boot will not manage the bean, 
 which means that it will not be included in any of the dependency injection or autowiring processes that Spring Boot provides.
 
+## In a Spring Boot application, what happens if both application.properties and application.yml files exist in the classpath? What about bootstrap.properties and bootstrap.yml files?
+
+If both application.properties and application.yml files exist in the classpath, then the application.yml file will take precedence over the application.properties file. 
+This is because Spring Boot considers YAML files to be more readable and easier to manage than properties files. 
+
+Similarly, if both bootstrap.properties and bootstrap.yml files exist in the classpath, then the bootstrap.yml file will take precedence over the bootstrap.properties file. 
+The bootstrap files are loaded before the application files, and they are used to configure external resources and initialize the application context. 
+This means that if you have configuration settings that need to be loaded before the application context is initialized, then you should use bootstrap files. 
 
