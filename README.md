@@ -101,3 +101,29 @@ To enable only specific actuator endpoints, provide the list of endpoint id.
 > URL : http://localhost:8787/actuatorDetails
 
 > URL : http://localhost:8787/actuatorDetails/info
+
+
+## Difference between @RequestParam and @PathVariable in spring boot
+
+**Both @RequestParam and @PathVariable are annotations in Spring Boot that can be used to extract data from a request URL, but they are used in different scenarios.**
+
+> @RequestParam is used to extract request parameters from the URL, which are typically used for filtering, sorting, or paging data. 
+For example, in a URL like /users?page=1&size=10, page and size are request parameters that can be extracted using @RequestParam. 
+These parameters are optional by default, unless specified otherwise.
+
+> @PathVariable is used to extract values from the URL path itself, which are typically used to identify a specific resource or entity. 
+For example, in a URL like /users/123, 123 is the value of the user ID, which can be extracted using @PathVariable. 
+These values are required by default, unless specified otherwise.
+
+
+## What happens if we use both the @Autowired annotation and the new operator to create a bean of the same type(same class) in a Spring Boot application?
+
+If you use both the @Autowired annotation and the "new" operator to create a bean of the same type, 
+then you will end up with two different instances of the bean. 
+
+When you use @Autowired, Spring Boot automatically creates and injects an instance of the specified bean into your class, 
+while when you use the new operator, you are creating a new instance of the bean yourself. 
+If you create a new instance of a bean using the new operator, Spring Boot will not manage the bean, 
+which means that it will not be included in any of the dependency injection or autowiring processes that Spring Boot provides.
+
+
