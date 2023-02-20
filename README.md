@@ -59,8 +59,18 @@ Using below annotation we can exclude any auto configured file from spring boot 
 > @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 
 
-## What will happen when we keep both application.properties and application.yml files
-In Spring Boot, if both application.properties and application.yml files are present, the properties defined in application.yml will take precedence. The properties in application.properties file will be ignored.
+## Difference between @Contoller and @RestController ?
+
+> @Controller is used to create traditional MVC controllers that handle incoming HTTP requests and return views.
+@Controller is a specialized version of @Component annotation.
+@Controller, we can return a view in Spring Web MVC.
+@Controller was added in Spring 2.5.
+
+> @RestController is used to create RESTful web services that return data in JSON or XML format directly in the response body.
+@RestController is a combination of @Controller and @ResponseBody.
+@RestController, we cannot return a view.
+@RestController simplifies the development of web services by eliminating the need for the developer to manually serialize and deserialize response data.
+@RestController was added in Spring 4.0.
 
 
 ## Spring boot profiles
