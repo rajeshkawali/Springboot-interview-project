@@ -118,13 +118,20 @@ To enable only specific actuator endpoints, provide the list of endpoint id.
 **Both @RequestParam and @PathVariable are annotations in Spring Boot that can be used to extract data from a request URL, but they are used in different scenarios.**
 
 > **@RequestParam** is used to extract request parameters from the URL, which are typically used for filtering, sorting, or paging data. 
-For example, in a URL like /users?page=1&size=10, page and size are request parameters that can be extracted using @RequestParam. 
+For example, in a URL like /products?productId=1&size=10, productId and size are request parameters that can be extracted using @RequestParam. 
 These parameters are optional by default, unless specified otherwise.
+```
+@GetMapping("/products")
+public Product getProductById(@RequestParam Long productId, @RequestParam Long size) {}
+```
 
 > **@PathVariable** is used to extract values from the URL path itself, which are typically used to identify a specific resource or entity. 
-For example, in a URL like /users/123, 123 is the value of the user ID, which can be extracted using @PathVariable. 
+For example, in a URL like /products/123, 123 is the value of the products ID, which can be extracted using @PathVariable. 
 These values are required by default, unless specified otherwise.
-
+```
+@GetMapping("/products/{productId}")
+public Product getProductById(@PathVariable Long productId) {}
+```
 
 ## What happens if we use both the @Autowired annotation and the new operator to create a bean of the same type(same class) in a Spring Boot application?
 
